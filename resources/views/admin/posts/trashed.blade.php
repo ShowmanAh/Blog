@@ -13,6 +13,7 @@
                 <th>Content</th>
                 <th>Edit</th>
                 <th>Restore</th>
+                <th>Delete</th>
 
                 </thead>
                 <tbody>
@@ -20,15 +21,18 @@
                     <tr>
                         <td><img src="{{$post->image}}" width="50px" height="50px" alt="{{$post->title}}"></td>
                         <td>{{ $post->title  }}</td>
-                        <td>{{ $post->content  }}</td>
+                        <td>{{ $post->description  }}</td>
                         <td>
-                            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-xs btn-info"> Edit </a>
+                            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-xs btn-success"> Edit Post </a>
                         </td>
                         <td>
-                            <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+                            <a href="{{ route('posts.restore', $post->id) }}" class="btn btn-xs btn-primary"> Restore Post </a>
+                        </td>
+                        <td>
+                            <form action="{{ route('posts.remove', $post->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('delete') }}
-                                <button type="submit" class="btn btn-xs btn-danger">Trash</button>
+
+                                <button type="submit" class="btn btn-xs btn-danger">Delete Post</button>
                             </form>
 
 

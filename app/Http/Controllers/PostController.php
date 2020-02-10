@@ -87,8 +87,23 @@ class PostController extends Controller
        return redirect()->route('posts.index');
     }
     public function trashed(){
-        dd('hhh');
-        $posts = Post::onlyTrashed()->get();
-        dd($posts);
+
+        $posts = Post::onlyTrashed()->paginate(10);
+        //dd($posts);
+        return view('admin.posts.trashed')->with('posts',$posts);
+    }
+    public function restore($id){
+        $post = Post::withTrashed()->where('id',$id)->first();
+        // dd($post);
+        $post->restore();
+        session()->flash('success', 'Post Restored successfully');
+        return redirect()->route('posts.index');
+    }
+    public function remove($id){
+        $post = Post::withTrashed()->where('id',$id)->first();
+       // dd($post);
+        $post->forceDelete();
+        session()->flash('success', 'Post deleted successfully');
+        return redirect()->back();
     }
 }
