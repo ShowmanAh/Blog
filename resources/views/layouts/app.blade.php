@@ -90,6 +90,9 @@
                                 <a href="{{ route('posts.index') }}">Posts</a>
                             </li>
                             <li class="list-group-item">
+                                <a href="{{ route('tags.index') }}">Tags</a>
+                            </li>
+                            <li class="list-group-item">
                                 <a href="{{ route('posts.trashed') }}">Trashed Posts</a>
                             </li>
                             <li class="list-group-item">
@@ -97,6 +100,9 @@
                             </li>
                             <li class="list-group-item">
                                 <a href="{{ route('posts.create') }}">Create New Post</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{ route('tags.create') }}">Create New Tags</a>
                             </li>
 
                         </ul>
