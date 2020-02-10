@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -34,24 +35,26 @@ class PostController extends Controller
         $this->validate($request,[
             'title' => 'required',
             'image' => 'required|image',
-            'content' => 'required',
+            'description' => 'required',
             'category_id' => 'required',
 
 
         ]);
 
 
-        //dd($request->all());
+       // dd($request->all());
         $image = $request->image;
         $image_new_name = time().$image->getClientOriginalName();
         $image->move('uploads/posts', $image_new_name);
         $post = Post::create([
             'title' => $request->title,
-            'content' => $request->content,
+            'description' => $request->description,
             'image' => 'uploads/posts/' . $image_new_name,
             'category_id' => $request->category_id,
+            'slug' => str_slug($request->title),
 
         ]);
+       // dd($post);
         session()->flash('success', 'Post Added Successfully');
         return redirect()->route('posts.index');
 

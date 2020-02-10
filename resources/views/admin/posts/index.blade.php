@@ -20,7 +20,7 @@
                     <tr>
                         <td><img src="{{$post->image}}" width="50px" height="50px" alt="{{$post->title}}"></td>
                         <td>{{ $post->title  }}</td>
-                        <td>{{ $post->content  }}</td>
+                        <td>{{ $post->description  }}</td>
                         <td>
                             <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-xs btn-info"> Edit </a>
                         </td>
