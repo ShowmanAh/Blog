@@ -14,23 +14,30 @@
 
                 </thead>
                 <tbody>
-               @foreach($categories as $category)
-                   <tr>
-                       <td>{{ $category->name }}</td>
-                       <td>
-                           <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-xs btn-info"> Edit </a>
-                       </td>
-                       <td>
-                           <form action="{{ route('categories.destroy', $category->id) }}" method="post">
-                               {{ csrf_field() }}
-                               {{ method_field('delete') }}
-                               <button type="submit" class="btn btn-xs btn-danger">Delete</button>
-                           </form>
+               @if($categories->count() > 0)
+                   @foreach($categories as $category)
+                       <tr>
+                           <td>{{ $category->name }}</td>
+                           <td>
+                               <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-xs btn-info"> Edit </a>
+                           </td>
+                           <td>
+                               <form action="{{ route('categories.destroy', $category->id) }}" method="post">
+                                   {{ csrf_field() }}
+                                   {{ method_field('delete') }}
+                                   <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+                               </form>
 
 
-                       </td>
-                   </tr>
+                           </td>
+                       </tr>
                    @endforeach
+                   @else
+                   <tr>
+                       <th colspan="5" class="text-lg-center text-danger"> No Categories Exist</th>
+                   </tr>
+                @endif
+
 
                 </tbody>
 

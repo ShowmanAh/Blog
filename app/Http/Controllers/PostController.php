@@ -69,13 +69,41 @@ class PostController extends Controller
 
     public function edit($id)
     {
-        //
+        $categories = Category::all();
+       $post = Post::find($id);
+       return view('admin.posts.edit', compact('categories','post'));
     }
 
 
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'title' => 'required',
+            'image' => 'required|image',
+            'description' => 'required',
+            'category_id' => 'required',
+
+
+        ]);
+        $post = Post::find($id);
+        dd($post);
+
+        if ($request->hasFile('image')){
+            $image = $request->image;
+            $image_new_name = time().$image->getClientOriginalName();
+            $image->move('uploads/posts', $image_new_name);
+        }
+        $post->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image' => 'uploads/posts/' . $image_new_name,
+            'category_id' => $request->category_id,
+            'slug' => str_slug($request->title),
+
+        ]);
+
+        session()->flash('success', 'Post Updated Successfully');
+        return redirect()->route('posts.index');
     }
 
 

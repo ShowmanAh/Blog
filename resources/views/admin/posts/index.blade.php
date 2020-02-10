@@ -16,25 +16,32 @@
 
                 </thead>
                 <tbody>
-                @foreach($posts as $post)
+                @if($posts->count() > 0)
+                    @foreach($posts as $post)
+                        <tr>
+                            <td><img src="{{$post->image}}" width="50px" height="50px" alt="{{$post->image}}"></td>
+                            <td>{{ $post->title  }}</td>
+                            <td>{{ $post->description  }}</td>
+                            <td>
+                                <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-xs btn-info"> Edit </a>
+                            </td>
+                            <td>
+                                <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+                                    {{ csrf_field() }}
+                                    {{ method_field('delete') }}
+                                    <button type="submit" class="btn btn-xs btn-danger">Trash</button>
+                                </form>
+
+
+                            </td>
+                        </tr>
+                    @endforeach
+                    @else
                     <tr>
-                        <td><img src="{{$post->image}}" width="50px" height="50px" alt="{{$post->title}}"></td>
-                        <td>{{ $post->title  }}</td>
-                        <td>{{ $post->description  }}</td>
-                        <td>
-                            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-xs btn-info"> Edit </a>
-                        </td>
-                        <td>
-                            <form action="{{ route('posts.destroy', $post->id) }}" method="post">
-                                {{ csrf_field() }}
-                                {{ method_field('delete') }}
-                                <button type="submit" class="btn btn-xs btn-danger">Trash</button>
-                            </form>
-
-
-                        </td>
+                        <th colspan="5" class="text-danger text-lg-center"> No Publish Post</th>
                     </tr>
-                @endforeach
+
+                @endif
 
                 </tbody>
 
