@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -20,12 +21,13 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $tags = Tag::all();
         if($categories->count() == 0)
         {
             session()->flash('info', 'You do not have any category to create Post');
             return redirect()->back();
         }
-        return view('admin.posts.create', compact('categories'));
+        return view('admin.posts.create', compact('categories','tags'));
     }
 
 
@@ -37,6 +39,7 @@ class PostController extends Controller
             'image' => 'required|image',
             'description' => 'required',
             'category_id' => 'required',
+            'tags' => 'required',
 
 
         ]);
@@ -54,6 +57,7 @@ class PostController extends Controller
             'slug' => str_slug($request->title),
 
         ]);
+        $post->tags()->attach($request->tags);
        // dd($post);
         session()->flash('success', 'Post Added Successfully');
         return redirect()->route('posts.index');
@@ -70,8 +74,9 @@ class PostController extends Controller
     public function edit($id)
     {
         $categories = Category::all();
+        $tags = Tag::all();
        $post = Post::find($id);
-       return view('admin.posts.edit', compact('categories','post'));
+       return view('admin.posts.edit', compact('categories','tags','post'));
     }
 
 
@@ -82,11 +87,12 @@ class PostController extends Controller
             'image' => 'required|image',
             'description' => 'required',
             'category_id' => 'required',
+            'tags' => 'required',
 
 
         ]);
         $post = Post::find($id);
-        dd($post);
+        //dd($post);
 
         if ($request->hasFile('image')){
             $image = $request->image;
@@ -101,7 +107,7 @@ class PostController extends Controller
             'slug' => str_slug($request->title),
 
         ]);
-
+       $post->tags()->sync($request->tags);
         session()->flash('success', 'Post Updated Successfully');
         return redirect()->route('posts.index');
     }

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="text-center">
-        <h1>Products</h1>
+        <h1>Categories</h1>
     </div>
     <div class="panel panel-default">
         <div class="panel-body">
