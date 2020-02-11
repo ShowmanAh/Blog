@@ -3,7 +3,7 @@
 @section('content')
     @include('admin.includes.errors')
     <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel-heading text-lg-center text">
             Edit your profile
         </div>
 

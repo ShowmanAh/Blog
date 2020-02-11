@@ -22,9 +22,9 @@ class PostController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-        if($categories->count() == 0)
+        if($categories->count() == 0 || $tags->count() == 0)
         {
-            session()->flash('info', 'You do not have any category to create Post');
+            session()->flash('info', 'You do not have any category or tags to create Post');
             return redirect()->back();
         }
         return view('admin.posts.create', compact('categories','tags'));

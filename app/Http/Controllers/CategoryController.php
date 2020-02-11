@@ -101,6 +101,10 @@ class CategoryController extends Controller
     {
 
         $category = Category::find($id);
+        //delete post in category when delete category
+        foreach ($category->posts as $post){
+            $post->forcDelete();
+        }
         //dd($category);
         $category->delete();
        // return view('admin.categories.index');
