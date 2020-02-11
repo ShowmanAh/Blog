@@ -17,7 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('tests', function (){
-    return App\Tag::find(2)->posts;
+    //dd('jj');
+    return App\User::find(1)->profile->avatar;
 
 });
 
@@ -42,6 +43,42 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function (){
         'as' => 'posts.remove',// route name
 
     ]);
+
+    Route::get('/users', [
+        'uses' => 'UserController@index',
+        'as' => 'users'
+    ]);
+
+    Route::get('/user/create', [
+        'uses' => 'UserController@create',
+        'as' => 'user.create'
+    ]);
+
+    Route::post('/user/store', [
+        'uses' => 'UserController@store',
+        'as' => 'user.store'
+    ]);
+
+    Route::get('user/admin/{id}', [
+        'uses' => 'UserController@admin',
+        'as' => 'user.admin'
+    ]);
+
+    Route::get('user/not-admin/{id}', [
+        'uses' => 'UserController@not_admin',
+        'as' => 'user.not.admin'
+    ]);
+
+    Route::get('user/profile', [
+        'uses' => 'ProfilesController@index',
+        'as' => 'user.profile'
+    ]);
+
+    Route::get('user/delete/{id}', [
+        'uses' => 'UserController@destroy',
+        'as' => 'user.delete'
+    ]);
+
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('posts', 'PostController');
     Route::resource('categories', 'CategoryController');
