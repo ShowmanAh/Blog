@@ -119,6 +119,11 @@
                             <li class="list-group-item">
                                 <a href="{{ route('tags.create') }}">Create New Tags</a>
                             </li>
+                            @if(Auth::user()->admin)
+                                <li class="list-group-item">
+                                    <a href="{{ route('settings') }}">Settings User</a>
+                                </li>
+                                @endif
 
                         </ul>
 
