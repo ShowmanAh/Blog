@@ -21,6 +21,11 @@ Route::get('tests', function (){
     return App\User::find(1)->profile->avatar;
 
 });
+Route::get('/',[
+    'uses' => 'FrontController@index',
+    'as' => 'home'
+]);
+
 
 Route::get('login/{social}', 'Auth\LoginController@redirectToSocial')
     ->where('social','twitter|facebook|google|github');

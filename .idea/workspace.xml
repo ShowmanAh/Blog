@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddc98629-4ea0-4f71-84ce-7069c93c09c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/settings/settings.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/blogy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blogy.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/asside/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/asside/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,7 +168,8 @@
       <workItem from="1581437537942" duration="8500000" />
       <workItem from="1581521860654" duration="1280000" />
       <workItem from="1582899875617" duration="3071000" />
-      <workItem from="1583275926974" duration="3982000" />
+      <workItem from="1583275926974" duration="6796000" />
+      <workItem from="1583333936603" duration="9144000" />
     </task>
     <servers />
   </component>
@@ -176,9 +177,9 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="378" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1583276233137">
+    <state x="378" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1583334094630">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="378" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1583276233137" />
+    <state x="378" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1583334094630" />
   </component>
 </project>
