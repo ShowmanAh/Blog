@@ -25,6 +25,33 @@ Route::get('/',[
     'uses' => 'FrontController@index',
     'as' => 'home'
 ]);
+Route::get('/post/{slug}',[
+    'uses' => 'FrontController@singlePost',
+    'as' => 'post.single'
+]);
+Route::get('category/{id}',[
+    'uses' => 'FrontController@category',
+    'as' => 'category.single'
+
+]);
+Route::get('tag/{id}',[
+    'uses' => 'FrontController@tag',
+    'as' => 'tag.single'
+
+]);
+Route::get('result', function (){
+    $posts = \App\Post::where('title','like','%'.request('query').'%')->get();
+    $settings = \App\Setting::first();
+    $categories = \App\Category::take(5)->get();
+    return view('results')->with('posts', $posts)
+        ->with('title','searchQuery'.request('query'))
+        ->with('categories',$categories)
+        ->with('settings',$settings)
+        ->with('query', request('query'))
+        ;
+
+});
+
 
 
 Route::get('login/{social}', 'Auth\LoginController@redirectToSocial')

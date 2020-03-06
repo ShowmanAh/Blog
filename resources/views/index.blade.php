@@ -68,7 +68,7 @@
                         <div class="post__content-info">
 
                             <h2 class="post__title entry-title text-center ">
-                                <a href="15_blog_details.html">{{$posts->title}}</a>
+                                <a href="{{ route('post.single',['slug'=>$posts->slug]) }}">{{$posts->title}}</a>
                             </h2>
 
                             <div class="post-additional-info">
@@ -85,7 +85,7 @@
 
                                 <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="#">{{$posts->category->name}}</a>
+                                            <a href="{{ route('category.single',['id'=>$posts->category->id]) }}">{{$posts->category->name}}</a>
                                         </span>
 
                                 <span class="post__comments">
@@ -122,7 +122,7 @@
                         <div class="post__content-info">
 
                             <h2 class="post__title entry-title text-center ">
-                                <a href="15_blog_details.html">{{$secondPost->title}}</a>
+                                <a href="{{ route('post.single',['slug'=>$posts->slug]) }}">{{$secondPost->title}}</a>
                             </h2>
 
                             <div class="post-additional-info">
@@ -139,7 +139,7 @@
 
                                 <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="#">{{$secondPost->category->name}}</a>
+                                            <a href="{{ route('category.single',['id'=>$secondPost->category->id]) }}">{{$secondPost->category->name}}</a>
                                         </span>
 
                                 <span class="post__comments">
@@ -172,7 +172,7 @@
                         <div class="post__content-info">
 
                             <h2 class="post__title entry-title text-center">
-                                <a href="15_blog_details.html">{{ $thirdPost->title }}</a>
+                                <a href="{{ route('post.single',['slug'=>$posts->slug]) }}">{{ $thirdPost->title }}</a>
                             </h2>
 
                             <div class="post-additional-info">
@@ -189,7 +189,7 @@
 
                                 <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="#">{{ $thirdPost->category->name }}</a>
+                                            <a href="{{ route('category.single',['id'=>$thirdPost->category->id]) }}">{{ $thirdPost->category->name }}</a>
                                         </span>
 
                                 <span class="post__comments">
@@ -233,7 +233,7 @@
                                         <div class="case-item__thumb">
                                             <img src="{{$post->image}}" alt="our case">
                                         </div>
-                                        <h6 class="case-item__title"><a href="#">{{$post->title}}</a></h6>
+                                        <h6 class="case-item__title"><a href="{{ route('post.single',['slug'=>$posts->slug]) }}">{{$post->title}}</a></h6>
                                     </div>
                                 </div>
                               @endforeach
@@ -330,9 +330,9 @@
     <div class="container">
         <div class="row">
             <div class="form_search-wrap">
-                <form>
-                    <input class="overlay_search-input" placeholder="Type and hit Enter..." type="text">
-                    <a href="#" class="overlay_search-close">
+                <form method="GET" action="/result">
+                    <input class="overlay_search-input" name="query" placeholder="Type and hit Enter..." type="text">
+                    <a href="#" class="overlay_search-close" type="submit">
                         <span></span>
                         <span></span>
                     </a>
