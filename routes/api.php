@@ -32,3 +32,9 @@ Route::get('tags/{id}','Api\TagController@show');
 Route::post('tags','Api\TagController@store');
 Route::post('tags/{id}','Api\TagController@update');
 Route::get('tags/delete/{id}','Api\TagController@destroy');
+/**  Posts routes */
+Route::get('posts','Api\PostController@index');
+Route::post('posts','Api\PostController@store');
+Route::post('posts/{id}','Api\PostController@update');
+Route::get('posts/{id}','Api\PostController@show');
+Route::get('posts/delete/{id}','Api\PostController@destroy');

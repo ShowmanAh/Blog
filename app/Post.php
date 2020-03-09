@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Post extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['title','slug' ,'description', 'image', 'category_id','user_id',];
+    protected $fillable = ['title','slug' ,'description', 'image', 'category_id','user_id'];
 //delete view
     protected $dates = ['deleted_at'];
     public function getImageAttribute($image){
