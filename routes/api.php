@@ -26,3 +26,9 @@ Route::get('categories/{id}','Api\CategoryController@show');
 Route::post('categories','Api\CategoryController@store');
 Route::post('categories/{id}','Api\CategoryController@update');
 Route::get('categories/delete/{id}','Api\CategoryController@destroy');
+/**  Tags routes */
+Route::get('tags','Api\TagController@index');
+Route::get('tags/{id}','Api\TagController@show');
+Route::post('tags','Api\TagController@store');
+Route::post('tags/{id}','Api\TagController@update');
+Route::get('tags/delete/{id}','Api\TagController@destroy');

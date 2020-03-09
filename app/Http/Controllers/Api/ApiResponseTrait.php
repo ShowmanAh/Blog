@@ -26,7 +26,7 @@ trait ApiResponseTrait{
     }
     //create response
     public function createdResponse($data){
-        return $this->apiResponse($data, null,201);
+        return $this->apiResponse($data, ['null'],201);
     }
     public function notFoundResponse(){
         return $this->apiResponse(null,'we not found ? ',404);
@@ -36,7 +36,8 @@ trait ApiResponseTrait{
         $validate = validator::make($request->all(), $array);
 
         if($validate->fails()){
-            return $this->apiResponse(null, $validate->errors(),422);
+           // return response()->json(['errors'=>$validate->errors()]);
+            return $this->apiResponse(null, ['errors'=>$validate->errors()],422);
         }
     }
 

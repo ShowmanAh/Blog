@@ -20,11 +20,14 @@ class AuthController extends Controller
         $validateDate['password'] = bcrypt($request->password);
         $user = User::create($validateDate);
         $accessToken = $user->createToken('authToken')->accessToken;
+
+
         if($user){
             return $this->apiResponse(['user' => $user, 'access_token' => $accessToken]);
         }else{
             return $this->notFoundResponse();
         }
+        
         //return response(['user' => $user, 'access_token' => $accessToken]);
 
 
