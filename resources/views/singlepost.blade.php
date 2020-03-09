@@ -24,7 +24,7 @@
                                     Posted by
 
                                     <div class="post__author-name fn">
-                                        <a href="#" class="post__author-link">Admin</a>
+                                        <a href="#" class="post__author-link">{{ $posts->user->name }}</a>
                                     </div>
 
                                 </div>
@@ -165,7 +165,7 @@
                                 </div>
                             </div>
 
-                            <div class="tags-wrap">
+                            <div class="tags-wrap text-center">
                                 @foreach($tags as $tag)
                                 <a href="{{ route('tag.single',['id'=>$tag->id]) }}" class="w-tags-item">{{ $tag->tag }}</a>
                                @endforeach

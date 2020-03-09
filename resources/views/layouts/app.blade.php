@@ -97,9 +97,11 @@
                             <li class="list-group-item">
                                 <a href="{{ route('user.profile') }}">My profile</a>
                             </li>
+                            @if(Auth::user()->admin)
                             <li class="list-group-item">
                                 <a href="{{ route('categories.index') }}">Categories</a>
                             </li>
+                            @endif
                             <li class="list-group-item">
                                 <a href="{{ route('posts.index') }}">Posts</a>
                             </li>
@@ -110,15 +112,19 @@
                             <li class="list-group-item">
                                 <a href="{{ route('posts.trashed') }}">Trashed Posts</a>
                             </li>
+                            @if(Auth::user()->admin)
                             <li class="list-group-item">
                                 <a href="{{ route('categories.create') }}">Create Categories</a>
                             </li>
+                            @endif
                             <li class="list-group-item">
                                 <a href="{{ route('posts.create') }}">Create New Post</a>
                             </li>
+                            @if(Auth::user()->admin)
                             <li class="list-group-item">
                                 <a href="{{ route('tags.create') }}">Create New Tags</a>
                             </li>
+                            @endif
                             @if(Auth::user()->admin)
                                 <li class="list-group-item">
                                     <a href="{{ route('settings') }}">Settings User</a>
