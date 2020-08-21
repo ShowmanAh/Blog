@@ -84,7 +84,6 @@ class ProfileController extends Controller
         return redirect()->route('user.profile');
     }
 
-
     public function destroy($id)
     {
         //

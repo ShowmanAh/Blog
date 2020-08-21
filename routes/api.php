@@ -38,3 +38,6 @@ Route::post('posts','Api\PostController@store');
 Route::post('posts/{id}','Api\PostController@update');
 Route::get('posts/{id}','Api\PostController@show');
 Route::get('posts/delete/{id}','Api\PostController@destroy');
+/** profile Route */
+Route::get('profile/{id}','Api\ProfileController@findUser')->middleware('auth:api');
+Route::post('profile/{id}','Api\ProfileController@update')->middleware('auth:api');
