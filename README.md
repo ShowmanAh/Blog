@@ -14,4 +14,4 @@ api
 3- tags end points.
 4- posts end points.
 technology:
-laravel,mysql, Mailtrap,summernote, laravel passport, resources.
+laravel,elquent, Mailtrap,summernote, laravel passport, resources.
